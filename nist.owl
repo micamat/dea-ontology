@@ -72,6 +72,11 @@
                rdfs:subClassOf :Logs .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#ApplicationSpecificInformation
+:ApplicationSpecificInformation rdf:type owl:Class ;
+                                rdfs:subClassOf :Information .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#AudioPlayer
 :AudioPlayer rdf:type owl:Class ;
              rdfs:subClassOf :DataSource .
@@ -80,6 +85,11 @@
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#AwarenessOfPolicies
 :AwarenessOfPolicies rdf:type owl:Class ;
                      rdfs:subClassOf :SoundnessRequirement .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#BufferOverflow
+:BufferOverflow rdf:type owl:Class ;
+                rdfs:subClassOf :TypeOfAttack .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#BypassingAccessControlMechanisms
@@ -133,6 +143,11 @@
             rdfs:subClassOf :InvestigationPhase .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Command
+:Command rdf:type owl:Class ;
+         rdfs:subClassOf :ApplicationSpecificInformation .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#Containment
 :Containment rdf:type owl:Class ;
              rdfs:subClassOf :Collection .
@@ -173,6 +188,11 @@
          rdfs:subClassOf :DataSource .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#DestinationIPAddress
+:DestinationIPAddress rdf:type owl:Class ;
+                      rdfs:subClassOf :Information .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#DigitalCamera
 :DigitalCamera rdf:type owl:Class ;
                rdfs:subClassOf :DataSource .
@@ -207,6 +227,21 @@
              rdfs:subClassOf :InvestigationPhase .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Filename
+:Filename rdf:type owl:Class ;
+          rdfs:subClassOf :ApplicationSpecificInformation .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Firewall
+:Firewall rdf:type owl:Class ;
+          rdfs:subClassOf :NetworkStorageDevice .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#FirewallLogs
+:FirewallLogs rdf:type owl:Class ;
+              rdfs:subClassOf :Logs .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#Firewire
 :Firewire rdf:type owl:Class ;
           rdfs:subClassOf :Port .
@@ -230,6 +265,11 @@
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#Host
 :Host rdf:type owl:Class ;
       rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#IDS
+:IDS rdf:type owl:Class ;
+     rdfs:subClassOf :NetworkStorageDevice .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#IDSLogs
@@ -317,9 +357,29 @@
                 rdfs:subClassOf :SoundnessRequirement .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#NATAddressAndPortMapping
+:NATAddressAndPortMapping rdf:type owl:Class ;
+                          rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#NATDevice
+:NATDevice rdf:type owl:Class ;
+           rdfs:subClassOf :NetworkStorageDevice .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#NATLogs
+:NATLogs rdf:type owl:Class ;
+         rdfs:subClassOf :Logs .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#NetworkStorageDevice
 :NetworkStorageDevice rdf:type owl:Class ;
                       rdfs:subClassOf :DataSource .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#NetworkTraffic
+:NetworkTraffic rdf:type owl:Class ;
+                rdfs:subClassOf :Data .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#NonviolationOfPrivacy
@@ -355,6 +415,16 @@
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#PDA
 :PDA rdf:type owl:Class ;
      rdfs:subClassOf :DataSource .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#PacketProcessingDateAndTime
+:PacketProcessingDateAndTime rdf:type owl:Class ;
+                             rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#PacketSniffer
+:PacketSniffer rdf:type owl:Class ;
+               rdfs:subClassOf :NetworkStorageDevice .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#PhotographingMediaAsFound
@@ -409,9 +479,39 @@
                          rdfs:comment "The analysit should create a plan that prioritizes the sources, establishing the order in which the data should be acquired." .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#ProtocolAnalyzer
+:ProtocolAnalyzer rdf:type owl:Class ;
+                  rdfs:subClassOf :NetworkStorageDevice .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#ProtocolInformation
+:ProtocolInformation rdf:type owl:Class ;
+                     rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Proxy
+:Proxy rdf:type owl:Class ;
+       rdfs:subClassOf :NetworkStorageDevice .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#ProxyLogs
+:ProxyLogs rdf:type owl:Class ;
+           rdfs:subClassOf :Logs .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#Reporting
 :Reporting rdf:type owl:Class ;
            rdfs:subClassOf :InvestigationPhase .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Router
+:Router rdf:type owl:Class ;
+        rdfs:subClassOf :NetworkStorageDevice .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#RouterLogs
+:RouterLogs rdf:type owl:Class ;
+            rdfs:subClassOf :Logs .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#SecuringOriginalDataSources
@@ -448,6 +548,16 @@
 :SoundnessRequirement rdf:type owl:Class .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#SourceIPAddress
+:SourceIPAddress rdf:type owl:Class ;
+                 rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#StatusCode
+:StatusCode rdf:type owl:Class ;
+            rdfs:subClassOf :ApplicationSpecificInformation .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#StoringInASecureLocation
 :StoringInASecureLocation rdf:type owl:Class ;
                           rdfs:subClassOf :ChainOfCustody .
@@ -458,6 +568,11 @@
               rdfs:subClassOf :Data .
 
 
+###  https://github.com/micamat/investigation-soundness-support-system/nist#TargetedVulnerability
+:TargetedVulnerability rdf:type owl:Class ;
+                       rdfs:subClassOf :Information .
+
+
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#ThumbDrive
 :ThumbDrive rdf:type owl:Class ;
             rdfs:subClassOf :Media .
@@ -466,6 +581,16 @@
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#ToolsIntegrity
 :ToolsIntegrity rdf:type owl:Class ;
                 rdfs:subClassOf :SoundnessRequirement .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#TransportLayerProtocol
+:TransportLayerProtocol rdf:type owl:Class ;
+                        rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#TypeOfAttack
+:TypeOfAttack rdf:type owl:Class ;
+              rdfs:subClassOf :Information .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#USB
@@ -491,6 +616,11 @@
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#UserActions
 :UserActions rdf:type owl:Class ;
              rdfs:subClassOf :Information .
+
+
+###  https://github.com/micamat/investigation-soundness-support-system/nist#Username
+:Username rdf:type owl:Class ;
+          rdfs:subClassOf :ApplicationSpecificInformation .
 
 
 ###  https://github.com/micamat/investigation-soundness-support-system/nist#VerifyingTheIntegrityOfOriginalAndCopy
