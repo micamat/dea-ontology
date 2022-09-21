@@ -1,690 +1,1364 @@
-@prefix : <https://github.com/micamat/investigation-soundness-support-system/nist#> .
+@prefix : <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <https://github.com/micamat/investigation-soundness-support-system/nist> .
+@base <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5> .
 
-<https://github.com/micamat/investigation-soundness-support-system/nist> rdf:type owl:Ontology .
+<http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5> rdf:type owl:Ontology .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#hasPort
-:hasPort rdf:type owl:ObjectProperty ;
-         rdfs:domain :DataSource ;
-         rdfs:range :Port .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#dataContainedIn
+:dataContainedIn rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :formContainedIn ;
+                 owl:inverseOf :hasData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#produces
-:produces rdf:type owl:ObjectProperty ;
-          rdfs:domain :InvestigationPhase ;
-          rdfs:range :DataForm .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#dataProcessedBy
+:dataProcessedBy rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf :formProcessedBy ;
+                 owl:inverseOf :processData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#satisfiedBy
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#formContainedIn
+:formContainedIn rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :hasForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#formProcessedBy
+:formProcessedBy rdf:type owl:ObjectProperty ;
+                 owl:inverseOf :processForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#hasData
+:hasData rdf:type owl:ObjectProperty ;
+         rdfs:subPropertyOf :hasForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#hasForm
+:hasForm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#hasInformation
+:hasInformation rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :hasForm ;
+                owl:inverseOf :informationContainedIn .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#hasMedia
+:hasMedia rdf:type owl:ObjectProperty ;
+          rdfs:subPropertyOf :hasForm ;
+          owl:inverseOf :mediaContainedIn .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#informationContainedIn
+:informationContainedIn rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :formContainedIn .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#informationProcessedBy
+:informationProcessedBy rdf:type owl:ObjectProperty ;
+                        rdfs:subPropertyOf :formProcessedBy ;
+                        owl:inverseOf :processInformation .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#mediaContainedIn
+:mediaContainedIn rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :formContainedIn .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#mediaProcessedBy
+:mediaProcessedBy rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf :formProcessedBy ;
+                  owl:inverseOf :processMedia .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#potentialEvidenceSourceProcessedBy
+:potentialEvidenceSourceProcessedBy rdf:type owl:ObjectProperty ;
+                                    rdfs:subPropertyOf :formProcessedBy ;
+                                    owl:inverseOf :processPotentialEvidenceSource .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#processData
+:processData rdf:type owl:ObjectProperty ;
+             rdfs:subPropertyOf :processForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#processForm
+:processForm rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#processInformation
+:processInformation rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :processForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#processMedia
+:processMedia rdf:type owl:ObjectProperty ;
+              rdfs:subPropertyOf :processForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#processPotentialEvidenceSource
+:processPotentialEvidenceSource rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf :processForm .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#satisfiedBy
 :satisfiedBy rdf:type owl:ObjectProperty ;
-             rdfs:domain :SoundnessRequirement ;
-             rdfs:range :InvestigationPhase .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#storedBy
-:storedBy rdf:type owl:ObjectProperty ;
-          rdfs:domain :DataForm ;
-          rdfs:range :DataSource .
-
-
-#################################################################
-#    Data properties
-#################################################################
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#hasLikelyValue
-:hasLikelyValue rdf:type owl:DatatypeProperty ;
-                rdfs:domain :Data ;
-                rdfs:range xsd:float .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#hasPeriod
-:hasPeriod rdf:type owl:DatatypeProperty ;
-           rdfs:domain :Logs ;
-           rdfs:range xsd:integer .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#requiresAnEffort
-:requiresAnEffort rdf:type owl:DatatypeProperty ;
-                  rdfs:domain :Data ;
-                  rdfs:range xsd:float .
+             rdfs:subPropertyOf owl:topObjectProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Analysis
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnalysingACopyOfPotentialEvidenceSource
+:AnalysingACopyOfPotentialEvidenceSource rdf:type owl:Class ;
+                                         rdfs:subClassOf :AnalysisSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Analysis
 :Analysis rdf:type owl:Class ;
           rdfs:subClassOf :InvestigationPhase .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#AntivirusLogs
-:AntivirusLogs rdf:type owl:Class ;
-               rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnalysisInvestigatorSoundnessRequirement
+:AnalysisInvestigatorSoundnessRequirement rdf:type owl:Class ;
+                                          rdfs:subClassOf :AnalysisSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ApplicationSpecificInformation
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnalysisSoundnessRequirement
+:AnalysisSoundnessRequirement rdf:type owl:Class ;
+                              rdfs:subClassOf :SoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnalysisToolsSoundnessRequirement
+:AnalysisToolsSoundnessRequirement rdf:type owl:Class ;
+                                   rdfs:subClassOf :AnalysisSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnonymizedData
+:AnonymizedData rdf:type owl:Class ;
+                rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AnonymizedNetowrkData
+:AnonymizedNetowrkData rdf:type owl:Class ;
+                       rdfs:subClassOf :AnonymizedData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ApplicationCommand
+:ApplicationCommand rdf:type owl:Class ;
+                    rdfs:subClassOf :ApplicationSpecificInformation .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ApplicationFileName
+:ApplicationFileName rdf:type owl:Class ;
+                     rdfs:subClassOf :ApplicationSpecificInformation .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ApplicationSpecificInformation
 :ApplicationSpecificInformation rdf:type owl:Class ;
                                 rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#AudioPlayer
-:AudioPlayer rdf:type owl:Class ;
-             rdfs:subClassOf :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ApplicationStatusCode
+:ApplicationStatusCode rdf:type owl:Class ;
+                       rdfs:subClassOf :ApplicationSpecificInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#AwarenessOfPolicies
-:AwarenessOfPolicies rdf:type owl:Class ;
-                     rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#AttackType
+:AttackType rdf:type owl:Class ;
+            rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#BufferOverflow
-:BufferOverflow rdf:type owl:Class ;
-                rdfs:subClassOf :TypeOfAttack .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfAlternateAccessPoint
+:BeingAwareOfAlternateAccessPoint rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :satisfiedBy ;
+                                                        owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                             owl:unionOf ( :MonitoringNetworkTrafficPackets
+                                                                                           :MonitoringTrafficFlow
+                                                                                         )
+                                                                           ]
+                                                      ] ;
+                                  rdfs:subClassOf :BeingAwareOfAlternatePotentialEvidenceSource .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#BypassingAccessControlMechanisms
-:BypassingAccessControlMechanisms rdf:type owl:Class ;
-                                  rdfs:subClassOf :BypassingObscuringFeatures .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfAlternatePotentialEvidenceSource
+:BeingAwareOfAlternatePotentialEvidenceSource rdf:type owl:Class ;
+                                              rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#BypassingDataCompression
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfAnalysisToolsFailure
+:BeingAwareOfAnalysisToolsFailure rdf:type owl:Class ;
+                                  rdfs:subClassOf :AnalysisToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfAtypicalBehavior
+:BeingAwareOfAtypicalBehavior rdf:type owl:Class ;
+                              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                    owl:onProperty :satisfiedBy ;
+                                                    owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                         owl:unionOf ( :MonitoringNetworkTrafficPackets
+                                                                                       :MonitoringTrafficFlow
+                                                                                     )
+                                                                       ]
+                                                  ] ;
+                              rdfs:subClassOf :ExaminationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfCollectionToolsFailure
+:BeingAwareOfCollectionToolsFailure rdf:type owl:Class ;
+                                    rdfs:subClassOf :CollectionToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfExaminationToolsFailure
+:BeingAwareOfExaminationToolsFailure rdf:type owl:Class ;
+                                     rdfs:subClassOf :ExaminationToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfIdentificationToolsFailure
+:BeingAwareOfIdentificationToolsFailure rdf:type owl:Class ;
+                                        rdfs:subClassOf :IdentificationToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfNetworkExaminationToolsFailure
+:BeingAwareOfNetworkExaminationToolsFailure rdf:type owl:Class ;
+                                            rdfs:subClassOf :BeingAwareOfExaminationToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfNetworkToolsInaccurateAlerts
+:BeingAwareOfNetworkToolsInaccurateAlerts rdf:type owl:Class ;
+                                          rdfs:subClassOf :BeingAwareOfNetworkExaminationToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BeingAwareOfOrganizationPolicies
+:BeingAwareOfOrganizationPolicies rdf:type owl:Class ;
+                                  rdfs:subClassOf :CollectionSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BypassingAccessControlMechanism
+:BypassingAccessControlMechanism rdf:type owl:Class ;
+                                 rdfs:subClassOf :BypassingObscuringFeatures .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BypassingDataCompression
 :BypassingDataCompression rdf:type owl:Class ;
                           rdfs:subClassOf :BypassingObscuringFeatures .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#BypassingEncryption
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BypassingEncryption
 :BypassingEncryption rdf:type owl:Class ;
                      rdfs:subClassOf :BypassingObscuringFeatures .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#BypassingObscuringFeatures
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BypassingNetworkTrafficEncryption
+:BypassingNetworkTrafficEncryption rdf:type owl:Class ;
+                                   rdfs:subClassOf :BypassingEncryption .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#BypassingObscuringFeatures
 :BypassingObscuringFeatures rdf:type owl:Class ;
                             rdfs:subClassOf :Examination .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#CellPhone
-:CellPhone rdf:type owl:Class ;
-           rdfs:subClassOf :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#CapturedData
+:CapturedData rdf:type owl:Class ;
+              rdfs:subClassOf :Data .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#CentralLogServer
-:CentralLogServer rdf:type owl:Class ;
-                  rdfs:subClassOf :Server .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#CapturedNetworkPackets
+:CapturedNetworkPackets rdf:type owl:Class ;
+                        rdfs:subClassOf :CapturedData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ChainOfCustody
-:ChainOfCustody rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty :satisfiedBy ;
-                                      owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :produces ;
-                                                           owl:someValuesFrom :Data
-                                                         ]
-                                    ] ;
-                rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Capturing
+:Capturing rdf:type owl:Class ;
+           owl:equivalentClass :Monitoring ;
+           rdfs:subClassOf :Collection .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Collection
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Collection
 :Collection rdf:type owl:Class ;
-            owl:equivalentClass [ rdf:type owl:Restriction ;
-                                  owl:onProperty :produces ;
-                                  owl:someValuesFrom :Data
-                                ] ;
             rdfs:subClassOf :InvestigationPhase .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Command
-:Command rdf:type owl:Class ;
-         rdfs:subClassOf :ApplicationSpecificInformation .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#CollectionInvestigatorSoundnessRequirement
+:CollectionInvestigatorSoundnessRequirement rdf:type owl:Class ;
+                                            rdfs:subClassOf :CollectionSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Containment
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#CollectionSoundnessRequirement
+:CollectionSoundnessRequirement rdf:type owl:Class ;
+                                rdfs:subClassOf :SoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#CollectionToolsSoundnessRequirement
+:CollectionToolsSoundnessRequirement rdf:type owl:Class ;
+                                     rdfs:subClassOf :CollectionSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Containment
 :Containment rdf:type owl:Class ;
              rdfs:subClassOf :Collection .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#CourtOrder
-:CourtOrder rdf:type owl:Class ;
-            rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Data
+:Data rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Data
-:Data rdf:type owl:Class ;
-      rdfs:subClassOf :DataForm .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DateAndTime
+:DateAndTime rdf:type owl:Class ;
+             rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DataForm
-:DataForm rdf:type owl:Class .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DataIntegrity
-:DataIntegrity rdf:type owl:Class ;
-               owl:equivalentClass [ rdf:type owl:Restriction ;
-                                     owl:onProperty :satisfiedBy ;
-                                     owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                          owl:onProperty :produces ;
-                                                          owl:someValuesFrom :Data
-                                                        ]
-                                   ] ;
-               rdfs:subClassOf :SoundnessRequirement .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DataSource
-:DataSource rdf:type owl:Class .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Desktop
-:Desktop rdf:type owl:Class ;
-         rdfs:subClassOf :DataSource .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DestinationIPAddress
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DestinationIPAddress
 :DestinationIPAddress rdf:type owl:Class ;
-                      rdfs:subClassOf :Information .
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :informationContainedIn ;
+                                            owl:someValuesFrom :RouterLogData
+                                          ] ;
+                      rdfs:subClassOf :IPAddress .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DigitalCamera
-:DigitalCamera rdf:type owl:Class ;
-               rdfs:subClassOf :DataSource .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DigitalRecorder
-:DigitalRecorder rdf:type owl:Class ;
-                 rdfs:subClassOf :DataSource .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DisconnectingNetworkCables
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DisconnectingNetworkCables
 :DisconnectingNetworkCables rdf:type owl:Class ;
                             rdfs:subClassOf :Containment .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#DocumentingActions
-:DocumentingActions rdf:type owl:Class ;
-                    rdfs:subClassOf :ChainOfCustody .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DocumentingAnalysisActions
+:DocumentingAnalysisActions rdf:type owl:Class ;
+                            rdfs:subClassOf :AnalysisSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#EquipmentIntegrity
-:EquipmentIntegrity rdf:type owl:Class ;
-                    rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DocumentingCollectionActions
+:DocumentingCollectionActions rdf:type owl:Class ;
+                              rdfs:subClassOf :CollectionSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Examination
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DocumentingExaminationActions
+:DocumentingExaminationActions rdf:type owl:Class ;
+                               rdfs:subClassOf :ExaminationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#DocumentingIdentificationActions
+:DocumentingIdentificationActions rdf:type owl:Class ;
+                                  rdfs:subClassOf :IdentificationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#EncryptedData
+:EncryptedData rdf:type owl:Class ;
+               rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#EncryptedNetworkTraffic
+:EncryptedNetworkTraffic rdf:type owl:Class ;
+                         owl:equivalentClass [ rdf:type owl:Restriction ;
+                                               owl:onProperty :hasInformation ;
+                                               owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                    owl:unionOf ( :DestinationIPAddress
+                                                                                  :SourceIPAddress
+                                                                                )
+                                                                  ]
+                                             ] ;
+                         rdfs:subClassOf :EncryptedData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ExaminatingACopyOfPotentialEvidenceSource
+:ExaminatingACopyOfPotentialEvidenceSource rdf:type owl:Class ;
+                                           rdfs:subClassOf :ExaminationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Examination
 :Examination rdf:type owl:Class ;
-             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                   owl:onProperty :produces ;
-                                   owl:someValuesFrom :Information
-                                 ] ;
              rdfs:subClassOf :InvestigationPhase .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Filename
-:Filename rdf:type owl:Class ;
-          rdfs:subClassOf :ApplicationSpecificInformation .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ExaminationInvestigatorSoundnessRequirement
+:ExaminationInvestigatorSoundnessRequirement rdf:type owl:Class ;
+                                             rdfs:subClassOf :ExaminationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Firewall
-:Firewall rdf:type owl:Class ;
-          rdfs:subClassOf :NetworkStorageDevice .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ExaminationSoundnessRequirement
+:ExaminationSoundnessRequirement rdf:type owl:Class ;
+                                 rdfs:subClassOf :SoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#FirewallLogs
-:FirewallLogs rdf:type owl:Class ;
-              rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ExaminationToolsSoundnessRequirement
+:ExaminationToolsSoundnessRequirement rdf:type owl:Class ;
+                                      rdfs:subClassOf :ExaminationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Firewire
-:Firewire rdf:type owl:Class ;
-          rdfs:subClassOf :Port .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ExploitedVulnerability
+:ExploitedVulnerability rdf:type owl:Class ;
+                        rdfs:subClassOf :ApplicationSpecificInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#FlashCard
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FilteringData
+:FilteringData rdf:type owl:Class ;
+               owl:equivalentClass :IdentifyingRelevantData ;
+               rdfs:subClassOf :Examination .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallDevice
+:FirewallDevice rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasMedia ;
+                                      owl:someValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( :FirewallDeviceFlashRAM
+                                                                         :FirewallDeviceNonvolatileRAM
+                                                                       )
+                                                         ]
+                                    ] ;
+                rdfs:subClassOf :NetworkTrafficSourceDevice .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallDeviceFlashRAM
+:FirewallDeviceFlashRAM rdf:type owl:Class ;
+                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                              owl:onProperty :hasData ;
+                                              owl:someValuesFrom :FirewallDeviceLogData
+                                            ] ;
+                        rdfs:subClassOf :FlashRAM .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallDeviceLogData
+:FirewallDeviceLogData rdf:type owl:Class ;
+                       rdfs:subClassOf :FirewallLogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallDeviceNonvolatileRAM
+:FirewallDeviceNonvolatileRAM rdf:type owl:Class ;
+                              rdfs:subClassOf :NonvolatileRAM .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallHostBased
+:FirewallHostBased rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasMedia ;
+                                         owl:someValuesFrom :HostMagneticDiskForFirewallHostBased
+                                       ] ;
+                   rdfs:subClassOf :NetworkTrafficSourceHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallHostBasedLogData
+:FirewallHostBasedLogData rdf:type owl:Class ;
+                          rdfs:subClassOf :FirewallLogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FirewallLogData
+:FirewallLogData rdf:type owl:Class ;
+                 rdfs:subClassOf :LogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FlashCard
 :FlashCard rdf:type owl:Class ;
            rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#GatheringEvidence
-:GatheringEvidence rdf:type owl:Class ;
-                   rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#FlashRAM
+:FlashRAM rdf:type owl:Class ;
+          rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#HandlingEvidence
-:HandlingEvidence rdf:type owl:Class ;
-                  rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HavingCourtOrderIfNeedded
+:HavingCourtOrderIfNeedded rdf:type owl:Class ;
+                           rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Host
-:Host rdf:type owl:Class ;
-      rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostInformation
+:HostInformation rdf:type owl:Class ;
+                 rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#IDS
-:IDS rdf:type owl:Class ;
-     rdfs:subClassOf :NetworkStorageDevice .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostMagneticDiskForFirewallHostBased
+:HostMagneticDiskForFirewallHostBased rdf:type owl:Class ;
+                                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                            owl:onProperty :hasData ;
+                                                            owl:someValuesFrom :FirewallHostBasedLogData
+                                                          ] ;
+                                      rdfs:subClassOf :HostMgneticDisk .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#IDSLogs
-:IDSLogs rdf:type owl:Class ;
-         rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostMagneticDiskForIDSHostBased
+:HostMagneticDiskForIDSHostBased rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasData ;
+                                                       owl:someValuesFrom :IDSHostBasedLogData
+                                                     ] ;
+                                 rdfs:subClassOf :HostMgneticDisk .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ISP
-:ISP rdf:type owl:Class ;
-     rdfs:subClassOf :Organization .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostMagneticDiskForPacketSniffer
+:HostMagneticDiskForPacketSniffer rdf:type owl:Class ;
+                                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                        owl:onProperty :hasData ;
+                                                        owl:someValuesFrom :CapturedNetworkPackets
+                                                      ] ;
+                                  rdfs:subClassOf :HostMgneticDisk .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Identification
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostMagneticDiskForSecurityEventManagementSoftware
+:HostMagneticDiskForSecurityEventManagementSoftware rdf:type owl:Class ;
+                                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :hasData ;
+                                                                          owl:someValuesFrom :SecurityEventManagementSoftwareLogData
+                                                                        ] ;
+                                                    rdfs:subClassOf :HostMgneticDisk .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#HostMgneticDisk
+:HostMgneticDisk rdf:type owl:Class ;
+                 rdfs:subClassOf :MagneticDisk .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSDevice
+:IDSDevice rdf:type owl:Class ;
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasMedia ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( :IDSDeviceFlashRAM
+                                                                    :IDSDeviceNonvolatileRAM
+                                                                  )
+                                                    ]
+                               ] ;
+           rdfs:subClassOf :NetworkTrafficSourceDevice .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSDeviceFlashRAM
+:IDSDeviceFlashRAM rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasData ;
+                                         owl:someValuesFrom :IDSDeviceLogData
+                                       ] ;
+                   rdfs:subClassOf :FlashRAM .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSDeviceLogData
+:IDSDeviceLogData rdf:type owl:Class ;
+                  owl:equivalentClass [ rdf:type owl:Restriction ;
+                                        owl:onProperty :dataProcessedBy ;
+                                        owl:someValuesFrom :LookingAtIDSAlerts
+                                      ] ;
+                  rdfs:subClassOf :IDSLogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSDeviceNonvolatileRAM
+:IDSDeviceNonvolatileRAM rdf:type owl:Class ;
+                         rdfs:subClassOf :NonvolatileRAM .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSHostBased
+:IDSHostBased rdf:type owl:Class ;
+              owl:equivalentClass [ rdf:type owl:Restriction ;
+                                    owl:onProperty :hasMedia ;
+                                    owl:someValuesFrom :HostMagneticDiskForIDSHostBased
+                                  ] ;
+              rdfs:subClassOf :NetworkTrafficSourceHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSHostBasedLogData
+:IDSHostBasedLogData rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty :dataProcessedBy ;
+                                           owl:someValuesFrom :LookingAtIDSAlerts
+                                         ] ;
+                     rdfs:subClassOf :IDSLogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDSLogData
+:IDSLogData rdf:type owl:Class ;
+            rdfs:subClassOf :LogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IPAddress
+:IPAddress rdf:type owl:Class ;
+           rdfs:subClassOf :Information .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Identification
 :Identification rdf:type owl:Class ;
                 rdfs:subClassOf :InvestigationPhase .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#IdentifyingRelevantData
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IdentificationInvestigatorSoundnessRequirement
+:IdentificationInvestigatorSoundnessRequirement rdf:type owl:Class ;
+                                                rdfs:subClassOf :IdentificationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IdentificationSoundnessRequirement
+:IdentificationSoundnessRequirement rdf:type owl:Class ;
+                                    rdfs:subClassOf :SoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IdentificationToolsSoundnessRequirement
+:IdentificationToolsSoundnessRequirement rdf:type owl:Class ;
+                                         rdfs:subClassOf :IdentificationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IdentifyingRelevantData
 :IdentifyingRelevantData rdf:type owl:Class ;
                          rdfs:subClassOf :Examination .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Information
-:Information rdf:type owl:Class ;
-             rdfs:subClassOf :DataForm .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Information
+:Information rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#InvestigationPhase
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigationPhase
 :InvestigationPhase rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Laptop
-:Laptop rdf:type owl:Class ;
-        rdfs:subClassOf :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorHasKnowledgeOfClientEnvironment
+:InvestigatorHasKnowledgeOfClientEnvironment rdf:type owl:Class ;
+                                             rdfs:subClassOf :IdentificationInvestigatorSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#LimitingAccessToAuthorizedPersonnel
-:LimitingAccessToAuthorizedPersonnel rdf:type owl:Class ;
-                                     owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                           owl:onProperty :satisfiedBy ;
-                                                           owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                                                owl:onProperty :produces ;
-                                                                                owl:someValuesFrom :Data
-                                                                              ]
-                                                         ] ;
-                                     rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorHaveComprehensiveKnowledgeAboutAnalysis
+:InvestigatorHaveComprehensiveKnowledgeAboutAnalysis rdf:type owl:Class ;
+                                                     rdfs:subClassOf :AnalysisInvestigatorSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#LoggingPhysicalCustody
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorHaveComprehensiveKnowledgeAboutCollection
+:InvestigatorHaveComprehensiveKnowledgeAboutCollection rdf:type owl:Class ;
+                                                       rdfs:subClassOf :CollectionInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorHaveComprehensiveKnowledgeAboutExamination
+:InvestigatorHaveComprehensiveKnowledgeAboutExamination rdf:type owl:Class ;
+                                                        rdfs:subClassOf :ExaminationInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorUnderstandAnalysisTools
+:InvestigatorUnderstandAnalysisTools rdf:type owl:Class ;
+                                     rdfs:subClassOf :AnalysisInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorUnderstandCollectionTools
+:InvestigatorUnderstandCollectionTools rdf:type owl:Class ;
+                                       rdfs:subClassOf :CollectionInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorUnderstandExaminationTools
+:InvestigatorUnderstandExaminationTools rdf:type owl:Class ;
+                                        rdfs:subClassOf :ExaminationInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#InvestigatorUnderstandIdentificationTools
+:InvestigatorUnderstandIdentificationTools rdf:type owl:Class ;
+                                           rdfs:subClassOf :IdentificationInvestigatorSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LinuxHostMagneticDiskLocationForFirewallHostBased
+:LinuxHostMagneticDiskLocationForFirewallHostBased rdf:type owl:Class ;
+                                                   rdfs:subClassOf :HostMagneticDiskForFirewallHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LinuxHostMagneticDiskLocationForIDSHostBased
+:LinuxHostMagneticDiskLocationForIDSHostBased rdf:type owl:Class ;
+                                              rdfs:subClassOf :HostMagneticDiskForIDSHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LinuxHostMagneticDiskLocationForPacketSniffer
+:LinuxHostMagneticDiskLocationForPacketSniffer rdf:type owl:Class ;
+                                               rdfs:subClassOf :HostMagneticDiskForPacketSniffer .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LinuxHostMagneticDiskLocationForSecurityEventManagementSoftware
+:LinuxHostMagneticDiskLocationForSecurityEventManagementSoftware rdf:type owl:Class ;
+                                                                 rdfs:subClassOf :HostMagneticDiskForSecurityEventManagementSoftware .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LogData
+:LogData rdf:type owl:Class ;
+         rdfs:subClassOf :Data .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LoggingPhysicalCustody
 :LoggingPhysicalCustody rdf:type owl:Class ;
-                        rdfs:subClassOf :ChainOfCustody .
+                        rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Logs
-:Logs rdf:type owl:Class ;
-      rdfs:subClassOf :Data .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LookingAtAlerts
+:LookingAtAlerts rdf:type owl:Class ;
+                 rdfs:subClassOf :IdentifyingRelevantData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#MagneticDisk
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LookingAtIDSAlerts
+:LookingAtIDSAlerts rdf:type owl:Class ;
+                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                          owl:onProperty :processData ;
+                                          owl:someValuesFrom [ rdf:type owl:Class ;
+                                                               owl:unionOf ( :IDSHostBasedLogData
+                                                                             :IDSLogData
+                                                                           )
+                                                             ]
+                                        ] ;
+                    rdfs:subClassOf :LookingAtAlerts .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LookingAtLogs
+:LookingAtLogs rdf:type owl:Class ;
+               rdfs:subClassOf :IdentifyingRelevantData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LookingAtRouterLogs
+:LookingAtRouterLogs rdf:type owl:Class ;
+                     owl:equivalentClass [ rdf:type owl:Restriction ;
+                                           owl:onProperty :processData ;
+                                           owl:someValuesFrom :RouterLogData
+                                         ] ;
+                     rdfs:subClassOf :LookingAtLogs .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#LookingAtSecurityEventManagementSoftwareAlerts
+:LookingAtSecurityEventManagementSoftwareAlerts rdf:type owl:Class ;
+                                                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :processData ;
+                                                                      owl:someValuesFrom :SecurityEventManagementSoftwareLogData
+                                                                    ] ;
+                                                rdfs:subClassOf :LookingAtAlerts ;
+                                                rdfs:comment "SEM is abbreviature for Security Event Management software" .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MacHostMagneticDiskLocationForFirewallHostBased
+:MacHostMagneticDiskLocationForFirewallHostBased rdf:type owl:Class ;
+                                                 rdfs:subClassOf :HostMagneticDiskForFirewallHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MacHostMagneticDiskLocationForIDSHostBased
+:MacHostMagneticDiskLocationForIDSHostBased rdf:type owl:Class ;
+                                            rdfs:subClassOf :HostMagneticDiskForIDSHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MacHostMagneticDiskLocationForPacketSniffer
+:MacHostMagneticDiskLocationForPacketSniffer rdf:type owl:Class ;
+                                             rdfs:subClassOf :HostMagneticDiskForPacketSniffer .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MacHostMagneticDiskLocationForSecurityEventManagementSoftware
+:MacHostMagneticDiskLocationForSecurityEventManagementSoftware rdf:type owl:Class ;
+                                                               rdfs:subClassOf :HostMagneticDiskForSecurityEventManagementSoftware .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MagneticDisk
 :MagneticDisk rdf:type owl:Class ;
               rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#MakingACopy
-:MakingACopy rdf:type owl:Class ;
-             rdfs:subClassOf :ChainOfCustody .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MakingACopyOfPotentialEvidenceSource
+:MakingACopyOfPotentialEvidenceSource rdf:type owl:Class ;
+                                      rdfs:subClassOf :CollectionSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Media
-:Media rdf:type owl:Class ;
-       rdfs:subClassOf :DataForm .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Media
+:Media rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#MemoryCard
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MemoryCard
 :MemoryCard rdf:type owl:Class ;
             rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#MitigatingRisk
-:MitigatingRisk rdf:type owl:Class ;
-                owl:equivalentClass [ rdf:type owl:Restriction ;
-                                      owl:onProperty :satisfiedBy ;
-                                      owl:someValuesFrom :Containment
-                                    ] ;
-                rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MitigatingRiskIfExist
+:MitigatingRiskIfExist rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :satisfiedBy ;
+                                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                                  owl:unionOf ( :DisconnectingNetworkCables
+                                                                                :ShuttingDownAccessPoint
+                                                                                :ShuttingDownHost
+                                                                                :UnpluggingPower
+                                                                                :UnplugingWirelessAdapter
+                                                                              )
+                                                                ]
+                                           ] ;
+                       rdfs:subClassOf :CollectionSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NATAddressAndPortMapping
-:NATAddressAndPortMapping rdf:type owl:Class ;
-                          rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Monitoring
+:Monitoring rdf:type owl:Class ;
+            rdfs:subClassOf :Collection .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NATDevice
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringAnalysisToolsFailure
+:MonitoringAnalysisToolsFailure rdf:type owl:Class ;
+                                rdfs:subClassOf :BeingAwareOfAnalysisToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringCollectionToolsFailure
+:MonitoringCollectionToolsFailure rdf:type owl:Class ;
+                                  rdfs:subClassOf :BeingAwareOfCollectionToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringExaminationToolsFailure
+:MonitoringExaminationToolsFailure rdf:type owl:Class ;
+                                   rdfs:subClassOf :BeingAwareOfExaminationToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringIdentificationToolsFailure
+:MonitoringIdentificationToolsFailure rdf:type owl:Class ;
+                                      rdfs:subClassOf :BeingAwareOfIdentificationToolsFailure .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringNetworkTrafficPackets
+:MonitoringNetworkTrafficPackets rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :processData ;
+                                                       owl:someValuesFrom :CapturedNetworkPackets
+                                                     ] ;
+                                 rdfs:subClassOf :Monitoring .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#MonitoringTrafficFlow
+:MonitoringTrafficFlow rdf:type owl:Class ;
+                       owl:equivalentClass [ rdf:type owl:Restriction ;
+                                             owl:onProperty :processData ;
+                                             owl:someValuesFrom :CapturedNetworkPackets
+                                           ] ;
+                       rdfs:subClassOf :Monitoring .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NATDevice
 :NATDevice rdf:type owl:Class ;
-           rdfs:subClassOf :NetworkStorageDevice .
+           owl:equivalentClass [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasMedia ;
+                                 owl:someValuesFrom [ rdf:type owl:Class ;
+                                                      owl:unionOf ( :NATDeviceFlashRAM
+                                                                    :NATDeviceNonvolatileRAM
+                                                                  )
+                                                    ]
+                               ] ;
+           rdfs:subClassOf :NetworkTrafficSourceDevice .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NATLogs
-:NATLogs rdf:type owl:Class ;
-         rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NATDeviceFlashRAM
+:NATDeviceFlashRAM rdf:type owl:Class ;
+                   owl:equivalentClass [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasData ;
+                                         owl:someValuesFrom :NATLogData
+                                       ] ;
+                   rdfs:subClassOf :FlashRAM .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NetworkStorageDevice
-:NetworkStorageDevice rdf:type owl:Class ;
-                      rdfs:subClassOf :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NATDeviceNonvolatileRAM
+:NATDeviceNonvolatileRAM rdf:type owl:Class ;
+                         rdfs:subClassOf :NonvolatileRAM .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NetworkTraffic
-:NetworkTraffic rdf:type owl:Class ;
-                rdfs:subClassOf :Data .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NATLogData
+:NATLogData rdf:type owl:Class ;
+            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasInformation ;
+                                  owl:someValuesFrom :NATMapping
+                                ] ;
+            rdfs:subClassOf :LogData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#NonviolationOfPrivacy
-:NonviolationOfPrivacy rdf:type owl:Class ;
-                       rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NATMapping
+:NATMapping rdf:type owl:Class ;
+            rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#OSLogs
-:OSLogs rdf:type owl:Class ;
-        rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NetworkPacketProcessingDateAndTime
+:NetworkPacketProcessingDateAndTime rdf:type owl:Class ;
+                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                          owl:onProperty :informationContainedIn ;
+                                                          owl:someValuesFrom :RouterLogData
+                                                        ] ;
+                                    rdfs:subClassOf :DateAndTime .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#OperatingWithTheCopy
-:OperatingWithTheCopy rdf:type owl:Class ;
-                      rdfs:subClassOf :ChainOfCustody .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NetworkProtocolInformation
+:NetworkProtocolInformation rdf:type owl:Class ;
+                            rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#OpticalDisc
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NetworkTrafficSource
+:NetworkTrafficSource rdf:type owl:Class ;
+                      rdfs:subClassOf :PotentialEvidenceSource .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NetworkTrafficSourceDevice
+:NetworkTrafficSourceDevice rdf:type owl:Class ;
+                            rdfs:subClassOf :NetworkTrafficSource .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NetworkTrafficSourceHostBased
+:NetworkTrafficSourceHostBased rdf:type owl:Class ;
+                               rdfs:subClassOf :NetworkTrafficSource .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NonviolationOfPrivacyDuringExamination
+:NonviolationOfPrivacyDuringExamination rdf:type owl:Class ;
+                                        rdfs:subClassOf :ExaminationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NonviolationOfPrivaryDuringAnalysis
+:NonviolationOfPrivaryDuringAnalysis rdf:type owl:Class ;
+                                     rdfs:subClassOf :AnalysisSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NonviolationOfPrivaryDuringCollection
+:NonviolationOfPrivaryDuringCollection rdf:type owl:Class ;
+                                       rdfs:subClassOf :CollectionSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#NonvolatileRAM
+:NonvolatileRAM rdf:type owl:Class ;
+                rdfs:subClassOf :Media .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#OSLogData
+:OSLogData rdf:type owl:Class ;
+           rdfs:subClassOf :LogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#OpticalDisc
 :OpticalDisc rdf:type owl:Class ;
              rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Organization
-:Organization rdf:type owl:Class ;
-              rdfs:subClassOf :DataSource .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PCMCIA
-:PCMCIA rdf:type owl:Class ;
-        rdfs:subClassOf :Port .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PDA
-:PDA rdf:type owl:Class ;
-     rdfs:subClassOf :DataSource .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PacketProcessingDateAndTime
-:PacketProcessingDateAndTime rdf:type owl:Class ;
-                             rdfs:subClassOf :Information .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PacketSniffer
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PacketSniffer
 :PacketSniffer rdf:type owl:Class ;
-               rdfs:subClassOf :NetworkStorageDevice .
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasMedia ;
+                                     owl:someValuesFrom :HostMagneticDiskForPacketSniffer
+                                   ] ;
+               rdfs:subClassOf :NetworkTrafficSourceHostBased .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PhotographingMediaAsFound
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PhotographingMediaAsFound
 :PhotographingMediaAsFound rdf:type owl:Class ;
-                           owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                 owl:onProperty :satisfiedBy ;
-                                                 owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                                      owl:onProperty :produces ;
-                                                                      owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                                                           owl:onProperty :storedBy ;
-                                                                                           owl:someValuesFrom :DataSource
-                                                                                         ]
-                                                                    ]
-                                               ] ;
-                           rdfs:subClassOf :SoundnessRequirement .
+                           rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Port
-:Port rdf:type owl:Class .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PlacingNetworkMonitoringToolBehindTunnelingGateway
+:PlacingNetworkMonitoringToolBehindTunnelingGateway rdf:type owl:Class ;
+                                                    owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                                          owl:onProperty :processData ;
+                                                                          owl:someValuesFrom :EncryptedNetworkTraffic
+                                                                        ] ;
+                                                    rdfs:subClassOf :BypassingNetworkTrafficEncryption .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PotentialEvidence
-:PotentialEvidence rdf:type owl:Class ;
-                   rdfs:subClassOf :DataForm .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PotentialEvidence
+:PotentialEvidence rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#PrioritizingDataSources
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PotentialEvidenceSource
+:PotentialEvidenceSource rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#PrioritizingDataSources
 :PrioritizingDataSources rdf:type owl:Class ;
-                         owl:equivalentClass [ rdf:type owl:Restriction ;
-                                               owl:onProperty :satisfiedBy ;
-                                               owl:someValuesFrom [ rdf:type owl:Class ;
-                                                                    owl:unionOf ( [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :produces ;
-                                                                                    owl:someValuesFrom :VolatileMemory
-                                                                                  ]
-                                                                                  [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :hasLikelyValue ;
-                                                                                    owl:minCardinality "50"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                  [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :requiresAnEffort ;
-                                                                                    owl:minCardinality "50"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                  [ rdf:type owl:Restriction ;
-                                                                                    owl:onProperty :hasPeriod ;
-                                                                                    owl:maxCardinality "1"^^xsd:nonNegativeInteger
-                                                                                  ]
-                                                                                )
-                                                                  ]
-                                             ] ;
-                         rdfs:subClassOf :SoundnessRequirement ;
-                         rdfs:comment "The analysit should create a plan that prioritizes the sources, establishing the order in which the data should be acquired." .
+                         rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ProtocolAnalyzer
-:ProtocolAnalyzer rdf:type owl:Class ;
-                  rdfs:subClassOf :NetworkStorageDevice .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ProtocolInformation
-:ProtocolInformation rdf:type owl:Class ;
-                     rdfs:subClassOf :Information .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Proxy
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Proxy
 :Proxy rdf:type owl:Class ;
-       rdfs:subClassOf :NetworkStorageDevice .
+       owl:equivalentClass [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasMedia ;
+                             owl:someValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( :ProxyFlashRAM
+                                                                :ProxyNonvolatileRAM
+                                                              )
+                                                ]
+                           ] ;
+       rdfs:subClassOf :NetworkTrafficSourceDevice .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ProxyLogs
-:ProxyLogs rdf:type owl:Class ;
-           rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ProxyFlashRAM
+:ProxyFlashRAM rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasData ;
+                                     owl:someValuesFrom :ProxyLogData
+                                   ] ;
+               rdfs:subClassOf :FlashRAM .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Reporting
-:Reporting rdf:type owl:Class ;
-           rdfs:subClassOf :InvestigationPhase .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ProxyLogData
+:ProxyLogData rdf:type owl:Class ;
+              rdfs:subClassOf :LogData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Router
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ProxyNonvolatileRAM
+:ProxyNonvolatileRAM rdf:type owl:Class ;
+                     rdfs:subClassOf :NonvolatileRAM .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#RAM
+:RAM rdf:type owl:Class ;
+     rdfs:subClassOf :Media .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ROM
+:ROM rdf:type owl:Class ;
+     rdfs:subClassOf :Media .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#Router
 :Router rdf:type owl:Class ;
-        rdfs:subClassOf :NetworkStorageDevice .
+        owl:equivalentClass [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasMedia ;
+                              owl:someValuesFrom [ rdf:type owl:Class ;
+                                                   owl:unionOf ( :RouterFlashRAM
+                                                                 :RouterNonvolatileRAM
+                                                               )
+                                                 ]
+                            ] ;
+        rdfs:subClassOf :NetworkTrafficSourceDevice .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#RouterLogs
-:RouterLogs rdf:type owl:Class ;
-            rdfs:subClassOf :Logs .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#RouterFlashRAM
+:RouterFlashRAM rdf:type owl:Class ;
+                owl:equivalentClass [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasData ;
+                                      owl:someValuesFrom :RouterLogData
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :mediaContainedIn ;
+                                      owl:someValuesFrom :Router
+                                    ] ;
+                rdfs:subClassOf :FlashRAM .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#SecuringOriginalDataSources
-:SecuringOriginalDataSources rdf:type owl:Class ;
-                             owl:equivalentClass [ rdf:type owl:Restriction ;
-                                                   owl:onProperty :satisfiedBy ;
-                                                   owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                                        owl:onProperty :produces ;
-                                                                        owl:someValuesFrom [ rdf:type owl:Restriction ;
-                                                                                             owl:onProperty :storedBy ;
-                                                                                             owl:someValuesFrom :DataSource
-                                                                                           ]
-                                                                      ]
-                                                 ] ;
-                             rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#RouterLogData
+:RouterLogData rdf:type owl:Class ;
+               owl:equivalentClass [ rdf:type owl:Restriction ;
+                                     owl:onProperty :dataContainedIn ;
+                                     owl:someValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :RouterFlashRAM
+                                                                        :RouterNonvolatileRAM
+                                                                      )
+                                                        ]
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :hasInformation ;
+                                     owl:someValuesFrom [ rdf:type owl:Class ;
+                                                          owl:unionOf ( :DestinationIPAddress
+                                                                        :NetworkPacketProcessingDateAndTime
+                                                                        :SourceIPAddress
+                                                                        :TransportLayerProtocolType
+                                                                      )
+                                                        ]
+                                   ] ;
+               rdfs:subClassOf :LogData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Server
-:Server rdf:type owl:Class ;
-        rdfs:subClassOf :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#RouterNonvolatileRAM
+:RouterNonvolatileRAM rdf:type owl:Class ;
+                      owl:equivalentClass [ rdf:type owl:Restriction ;
+                                            owl:onProperty :mediaContainedIn ;
+                                            owl:someValuesFrom :Router
+                                          ] ;
+                      rdfs:subClassOf :NonvolatileRAM .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ShuttindDownAccessPoint
-:ShuttindDownAccessPoint rdf:type owl:Class ;
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SecurityEventManagementSoftware
+:SecurityEventManagementSoftware rdf:type owl:Class ;
+                                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                       owl:onProperty :hasMedia ;
+                                                       owl:someValuesFrom :HostMagneticDiskForSecurityEventManagementSoftware
+                                                     ] ;
+                                 rdfs:subClassOf :NetworkTrafficSourceHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SecurityEventManagementSoftwareLogData
+:SecurityEventManagementSoftwareLogData rdf:type owl:Class ;
+                                        owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                              owl:onProperty :dataProcessedBy ;
+                                                              owl:someValuesFrom :LookingAtSecurityEventManagementSoftwareAlerts
+                                                            ] ;
+                                        rdfs:subClassOf :LogData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ShuttingDownAccessPoint
+:ShuttingDownAccessPoint rdf:type owl:Class ;
                          rdfs:subClassOf :Containment .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ShuttingDownAHost
-:ShuttingDownAHost rdf:type owl:Class ;
-                   rdfs:subClassOf :Containment .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ShuttingDownHost
+:ShuttingDownHost rdf:type owl:Class ;
+                  rdfs:subClassOf :Containment .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#SoundnessRequirement
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SoundnessRequirement
 :SoundnessRequirement rdf:type owl:Class .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#SourceIPAddress
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SourceIPAddress
 :SourceIPAddress rdf:type owl:Class ;
-                 rdfs:subClassOf :Information .
+                 owl:equivalentClass [ rdf:type owl:Restriction ;
+                                       owl:onProperty :informationContainedIn ;
+                                       owl:someValuesFrom :RouterLogData
+                                     ] ;
+                 rdfs:subClassOf :IPAddress .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#StatusCode
-:StatusCode rdf:type owl:Class ;
-            rdfs:subClassOf :ApplicationSpecificInformation .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#StoringPotentialEvidenceSourceInASecureLocation
+:StoringPotentialEvidenceSourceInASecureLocation rdf:type owl:Class ;
+                                                 rdfs:subClassOf :IdentificationSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#StoringInASecureLocation
-:StoringInASecureLocation rdf:type owl:Class ;
-                          rdfs:subClassOf :ChainOfCustody .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SupplyingSufficientMemoryStorage
+:SupplyingSufficientMemoryStorage rdf:type owl:Class ;
+                                  rdfs:subClassOf :MakingACopyOfPotentialEvidenceSource .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#SystemBackup
-:SystemBackup rdf:type owl:Class ;
-              rdfs:subClassOf :Data .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#TargetedVulnerability
-:TargetedVulnerability rdf:type owl:Class ;
-                       rdfs:subClassOf :Information .
-
-
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ThumbDrive
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ThumbDrive
 :ThumbDrive rdf:type owl:Class ;
             rdfs:subClassOf :Media .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#ToolsIntegrity
-:ToolsIntegrity rdf:type owl:Class ;
-                rdfs:subClassOf :SoundnessRequirement .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TransportLayerProtocolInformation
+:TransportLayerProtocolInformation rdf:type owl:Class ;
+                                   rdfs:subClassOf :NetworkProtocolInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#TransportLayerProtocol
-:TransportLayerProtocol rdf:type owl:Class ;
-                        rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TransportLayerProtocolPort
+:TransportLayerProtocolPort rdf:type owl:Class ;
+                            rdfs:subClassOf :TransportLayerProtocolInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#TypeOfAttack
-:TypeOfAttack rdf:type owl:Class ;
-              rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TransportLayerProtocolType
+:TransportLayerProtocolType rdf:type owl:Class ;
+                            owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                  owl:onProperty :informationContainedIn ;
+                                                  owl:someValuesFrom :RouterLogData
+                                                ] ;
+                            rdfs:subClassOf :TransportLayerProtocolInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#USB
-:USB rdf:type owl:Class ;
-     rdfs:subClassOf :Port .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TunnelledNetworkData
+:TunnelledNetworkData rdf:type owl:Class ;
+                      rdfs:subClassOf :AnonymizedData .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#UnpluggingPower
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UnpluggingPower
 :UnpluggingPower rdf:type owl:Class ;
                  rdfs:subClassOf :Containment .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#UnpluggingWirelessAdapter
-:UnpluggingWirelessAdapter rdf:type owl:Class ;
-                           rdfs:subClassOf :Containment .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UnplugingWirelessAdapter
+:UnplugingWirelessAdapter rdf:type owl:Class ;
+                          rdfs:subClassOf :Containment .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#UserAccount
-:UserAccount rdf:type owl:Class ;
-             rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UserAccountInformation
+:UserAccountInformation rdf:type owl:Class ;
+                        rdfs:subClassOf :UserSpecificInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#UserActions
-:UserActions rdf:type owl:Class ;
-             rdfs:subClassOf :Information .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UserActionInformation
+:UserActionInformation rdf:type owl:Class ;
+                       rdfs:subClassOf :UserSpecificInformation .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#Username
-:Username rdf:type owl:Class ;
-          rdfs:subClassOf :ApplicationSpecificInformation .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UserSpecificInformation
+:UserSpecificInformation rdf:type owl:Class ;
+                         rdfs:subClassOf :Information .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#VerifyingTheIntegrityOfOriginalAndCopy
-:VerifyingTheIntegrityOfOriginalAndCopy rdf:type owl:Class ;
-                                        rdfs:subClassOf :ChainOfCustody .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ValidatingAnalysisTools
+:ValidatingAnalysisTools rdf:type owl:Class ;
+                         rdfs:subClassOf :AnalysisToolsSoundnessRequirement .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#VolatileMemory
-:VolatileMemory rdf:type owl:Class ;
-                rdfs:subClassOf :Media .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ValidatingCollectionTools
+:ValidatingCollectionTools rdf:type owl:Class ;
+                           rdfs:subClassOf :CollectionToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ValidatingExaminationTools
+:ValidatingExaminationTools rdf:type owl:Class ;
+                            rdfs:subClassOf :ExaminationToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ValidatingIdentificationTools
+:ValidatingIdentificationTools rdf:type owl:Class ;
+                               rdfs:subClassOf :IdentificationToolsSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#VerifyingTheIntegrityOfACopy
+:VerifyingTheIntegrityOfACopy rdf:type owl:Class ;
+                              rdfs:subClassOf :CollectionSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#VerifyingTheIntegrityOfInterpretedLogs
+:VerifyingTheIntegrityOfInterpretedLogs rdf:type owl:Class ;
+                                        rdfs:subClassOf :VerifyingTheIntegrityOfLogs .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#VerifyingTheIntegrityOfLogs
+:VerifyingTheIntegrityOfLogs rdf:type owl:Class ;
+                             owl:equivalentClass [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :satisfiedBy ;
+                                                   owl:someValuesFrom :LookingAtRouterLogs
+                                                 ] ;
+                             rdfs:subClassOf :VerifyingTheIntegrityOfACopy .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#VerifyingTheIntegrityOfOriginalSource
+:VerifyingTheIntegrityOfOriginalSource rdf:type owl:Class ;
+                                       rdfs:subClassOf :IdentificationSoundnessRequirement .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#WindowsHostMagneticDiskLocationForFirewallHostBased
+:WindowsHostMagneticDiskLocationForFirewallHostBased rdf:type owl:Class ;
+                                                     rdfs:subClassOf :HostMagneticDiskForFirewallHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#WindowsHostMagneticDiskLocationForIDSHostBased
+:WindowsHostMagneticDiskLocationForIDSHostBased rdf:type owl:Class ;
+                                                rdfs:subClassOf :HostMagneticDiskForIDSHostBased .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#WindowsHostMagneticDiskLocationForPacketSniffer
+:WindowsHostMagneticDiskLocationForPacketSniffer rdf:type owl:Class ;
+                                                 rdfs:subClassOf :HostMagneticDiskForPacketSniffer .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#WindowsHostMagneticDiskLocationForSecurityEventManagementSoftware
+:WindowsHostMagneticDiskLocationForSecurityEventManagementSoftware rdf:type owl:Class ;
+                                                                   rdfs:subClassOf :HostMagneticDiskForSecurityEventManagementSoftware .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#admissibilityrequirement
-:admissibilityrequirement rdf:type owl:NamedIndividual ;
-                          :satisfiedBy :investigationphase .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#ICMP
+:ICMP rdf:type owl:NamedIndividual ,
+               :TransportLayerProtocolType .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#analysis
-:analysis rdf:type owl:NamedIndividual ,
-                   :Analysis .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IDS_inaccurate_alerts
+:IDS_inaccurate_alerts rdf:type owl:NamedIndividual ,
+                                :BeingAwareOfNetworkToolsInaccurateAlerts .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#collection
-:collection rdf:type owl:NamedIndividual ,
-                     :Collection .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#IPSec_traffic
+:IPSec_traffic rdf:type owl:NamedIndividual ,
+                        :EncryptedNetworkTraffic .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#data
-:data rdf:type owl:NamedIndividual .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SSH_traffic
+:SSH_traffic rdf:type owl:NamedIndividual ,
+                      :EncryptedNetworkTraffic .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#dataform
-:dataform rdf:type owl:NamedIndividual ,
-                   :Data ;
-          :storedBy :datasource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#SSL_web_session
+:SSL_web_session rdf:type owl:NamedIndividual ,
+                          :EncryptedNetworkTraffic ;
+                 owl:sameAs :TLS_traffic .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#datasource
-:datasource rdf:type owl:NamedIndividual ,
-                     :DataSource .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TCP
+:TCP rdf:type owl:NamedIndividual ,
+              :TransportLayerProtocolType .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#examination
-:examination rdf:type owl:NamedIndividual ,
-                      :Examination .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TCP_port_number
+:TCP_port_number rdf:type owl:NamedIndividual ,
+                          :TransportLayerProtocolPort .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#identification
-:identification rdf:type owl:NamedIndividual ,
-                         :Identification .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#TLS_traffic
+:TLS_traffic rdf:type owl:NamedIndividual .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#integrity
-:integrity rdf:type owl:NamedIndividual ,
-                    :ToolsIntegrity .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UDP
+:UDP rdf:type owl:NamedIndividual ,
+              :TransportLayerProtocolType .
 
 
-###  https://github.com/micamat/investigation-soundness-support-system/nist#investigationphase
-:investigationphase rdf:type owl:NamedIndividual ;
-                    :produces :dataform .
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#UDP_port_number
+:UDP_port_number rdf:type owl:NamedIndividual ,
+                          :TransportLayerProtocolPort .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#VPN_data
+:VPN_data rdf:type owl:NamedIndividual ,
+                   :TunnelledNetworkData .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#alert_on_connections_involving_unexpected_port
+:alert_on_connections_involving_unexpected_port rdf:type owl:NamedIndividual ,
+                                                         :BeingAwareOfAtypicalBehavior .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#alert_on_connections_involving_unexpected_protocol
+:alert_on_connections_involving_unexpected_protocol rdf:type owl:NamedIndividual ,
+                                                             :BeingAwareOfAtypicalBehavior .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#client_network_scheme
+:client_network_scheme rdf:type owl:NamedIndividual ,
+                                :InvestigatorHasKnowledgeOfClientEnvironment .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#data
+:data rdf:type owl:NamedIndividual ;
+      :hasInformation :information .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#date_and_time_regarding_timezone
+:date_and_time_regarding_timezone rdf:type owl:NamedIndividual ,
+                                           :DateAndTime .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#information
+:information rdf:type owl:NamedIndividual ,
+                      :DestinationIPAddress ,
+                      :SourceIPAddress .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#investigation_phase
+:investigation_phase rdf:type owl:NamedIndividual ;
+                     :processData :data ;
+                     :processInformation :information ;
+                     :processMedia :media .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#izvor_dokaza
+:izvor_dokaza rdf:type owl:NamedIndividual ;
+              :hasMedia :media .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#media
+:media rdf:type owl:NamedIndividual ;
+       :hasData :data .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#netgear_nighthawk
+:netgear_nighthawk rdf:type owl:NamedIndividual ,
+                            :Router .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#placing_network_monitoring_tool_behind_tunneling_gateway
+:placing_network_monitoring_tool_behind_tunneling_gateway rdf:type owl:NamedIndividual ,
+                                                                   :BypassingNetworkTrafficEncryption .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#preventing_data_to_be_lost
+:preventing_data_to_be_lost rdf:type owl:NamedIndividual ,
+                                     :SupplyingSufficientMemoryStorage .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#preventing_data_to_be_overwritten
+:preventing_data_to_be_overwritten rdf:type owl:NamedIndividual ,
+                                            :SupplyingSufficientMemoryStorage .
+
+
+###  http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-5#requirement
+:requirement rdf:type owl:NamedIndividual ;
+             :satisfiedBy :investigation_phase .
 
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
