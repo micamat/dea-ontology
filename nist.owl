@@ -124,10 +124,6 @@
 # #################################################################
 # 
 # 
-# http://www.semanticweb.org/milica/ontologies/2022/8/iso-iec-27037#DisconnectingCables
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/iso-iec-27037#DisconnectingCables> a owl:Class .
-# 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#Analysis
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#Analysis> a owl:Class ;
@@ -332,7 +328,7 @@ _:genid3 a rdf:List ;
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#DisconnectingNetworkCables
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#DisconnectingNetworkCables> a owl:Class ;
-	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/iso-iec-27037#DisconnectingCables> .
+	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#DisconnectingCables> .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#Examination
 
@@ -526,13 +522,7 @@ _:genid3 a rdf:List ;
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtRouterLogs
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtRouterLogs> a owl:Class ;
-	owl:equivalentClass _:genid5 .
-
-_:genid5 a owl:Restriction ;
-	owl:onProperty <http://www.semanticweb.org/milica/ontologies/2022/8/nist#processData> ;
-	owl:someValuesFrom <http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterFlashRAMLogData> .
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtRouterLogs> rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtLogs> .
+	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtLogs> .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#LookingAtSecurityEventManagementSoftwareAlerts
 
@@ -544,9 +534,9 @@ _:genid5 a owl:Restriction ;
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#Media> a owl:Class .
 # 
-# http://www.semanticweb.org/milica/ontologies/2022/8/nist#MitigatingRiskDuringCollection
+# http://www.semanticweb.org/milica/ontologies/2022/8/nist#MitigatingAlterationRiskDuringCollection
 
-<http://www.semanticweb.org/milica/ontologies/2022/8/nist#MitigatingRiskDuringCollection> a owl:Class ;
+<http://www.semanticweb.org/milica/ontologies/2022/8/nist#MitigatingAlterationRiskDuringCollection> a owl:Class ;
 	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#CollectionActionsSoundnessRequirement> .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#Monitoring
@@ -627,9 +617,9 @@ _:genid5 a owl:Restriction ;
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#PlacingNetworkMonitoringToolBehindTunnelingGateway
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#PlacingNetworkMonitoringToolBehindTunnelingGateway> a owl:Class ;
-	owl:equivalentClass _:genid6 .
+	owl:equivalentClass _:genid5 .
 
-_:genid6 a owl:Restriction ;
+_:genid5 a owl:Restriction ;
 	owl:onProperty <http://www.semanticweb.org/milica/ontologies/2022/8/nist#processData> ;
 	owl:someValuesFrom <http://www.semanticweb.org/milica/ontologies/2022/8/nist#PacketSnifferMediaCaputerdTCPIPEncryptedNetworkPackets> .
 
@@ -674,11 +664,6 @@ _:genid6 a owl:Restriction ;
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterFlashRAM> a owl:Class ;
 	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#RouterMedia> .
 # 
-# http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterFlashRAMLogData
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterFlashRAMLogData> a owl:Class ;
-	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#RouterFlashRAMData> .
-# 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterNonvolatileRAM
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#RouterNonvolatileRAM> a owl:Class ;
@@ -698,8 +683,6 @@ _:genid6 a owl:Restriction ;
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#ShuttingDownAccessPoint> a owl:Class ;
 	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ShuttingDownDevice> .
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ShuttingDownDevice> a owl:Class .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#ShuttingDownHost
 
@@ -738,12 +721,7 @@ _:genid6 a owl:Restriction ;
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#UnpluggingPower
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#UnpluggingPower> a owl:Class ;
-	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/iso-iec-27037#DisconnectingCables> .
-# 
-# http://www.semanticweb.org/milica/ontologies/2022/8/nist#UnplugingWirelessAdapter
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/nist#UnplugingWirelessAdapter> a owl:Class ;
-	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/nist#DisconnectingNetworkCables> .
+	rdfs:subClassOf <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#DisconnectingCables> .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#UserAccountInformation
 
@@ -798,6 +776,10 @@ _:genid6 a owl:Restriction ;
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#CollectionActionsSoundnessRequirement> a owl:Class .
 # 
+# http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#DisconnectingCables
+
+<http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#DisconnectingCables> a owl:Class .
+# 
 # http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ExaminationActionsSoundnessRequirement
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ExaminationActionsSoundnessRequirement> a owl:Class .
@@ -843,6 +825,8 @@ _:genid6 a owl:Restriction ;
 <http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#SEMMedia> a owl:Class .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ShuttingDownDevice
+
+<http://www.semanticweb.org/milica/ontologies/2022/8/untitled-ontology-9#ShuttingDownDevice> a owl:Class .
 # 
 # 
 # 
@@ -913,10 +897,6 @@ _:genid6 a owl:Restriction ;
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#date_and_time_regarding_timezone
 
 <http://www.semanticweb.org/milica/ontologies/2022/8/nist#date_and_time_regarding_timezone> a owl:NamedIndividual , <http://www.semanticweb.org/milica/ontologies/2022/8/nist#DateAndTime> .
-# 
-# http://www.semanticweb.org/milica/ontologies/2022/8/nist#netgear_nighthawk
-
-<http://www.semanticweb.org/milica/ontologies/2022/8/nist#netgear_nighthawk> a owl:NamedIndividual , <http://www.semanticweb.org/milica/ontologies/2022/8/nist#Router> .
 # 
 # http://www.semanticweb.org/milica/ontologies/2022/8/nist#placing_network_monitoring_tool_behind_tunneling_gateway
 
